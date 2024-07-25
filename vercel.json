@@ -1,0 +1,24 @@
+{
+    "builds": [
+        {
+            "src": "api/**/*.js",
+            "use": "@vercel/node",
+            "config": {
+                "serverFiles": [
+                    "vercel-build.sh"
+                ]
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.js"
+        }
+    ],
+    "functions": {
+        "api/*": {
+            "includeFiles": "node_modules/**"
+        }
+    }
+}
